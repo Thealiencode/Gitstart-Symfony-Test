@@ -1,0 +1,12 @@
+# phpstan.neon
+parameters:
+    level: max
+    paths:
+        - src
+        - tests
+    scanDirectories:
+        - src
+        - tests
+    checkMissingVarTagTypehint: false
+    checkUninitializedProperties: false
+    inferPrivatePropertyTypeFromConstructor: true

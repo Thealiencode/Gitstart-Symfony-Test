@@ -1,0 +1,42 @@
+services:
+
+  products:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=dev
+      # - DB_HOST=mysql
+      # - DB_PORT=3306
+      # - DB_DATABASE=gitstart
+      # - DB_USERNAME=root
+      # - DB_PASSWORD=root
+      # Add other environment variables as needed
+    depends_on:
+      - mysql
+    networks:
+      - my_network
+
+  mysql:
+    image: mysql/mysql-server:8.0.23
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=gitstart_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=my_secret
+      - MYSQL_ROOT_PASSWORD=my_secret
+    volumes:
+      - gitstart_db:/var/lib/mysql
+    networks:
+      - my_network
+
+networks:
+  my_network:
+
+volumes:
+  gitstart_db:

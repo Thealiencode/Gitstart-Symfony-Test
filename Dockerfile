@@ -48,7 +48,6 @@ COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 # run composer install
-RUN COMPOSER_ALLOW_SUPERUSER=1 composer install 
 
 # Expose port 8000 for the Symfony development server
 EXPOSE 8000

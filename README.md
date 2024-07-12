@@ -31,7 +31,7 @@ docker-compose up
 ## Usage
 Run migration
 ```bash
-docker exec -it symfony-products-test-products-1 php bin/console doctrine:migrate
+docker exec -it symfony-products-test-products-1 php bin/console doctrine:migrations:migrate 
 ```
 Run this command to seed user to the database
 ```bash
